@@ -7,8 +7,14 @@ import org.springframework.validation.BindingResult;
 
 import java.util.Objects;
 
+/**
+ * 返回对象，状态码/msg/一个泛型
+ *
+ * @param <T>
+ */
+
 @Data
-@JsonInclude(value = JsonInclude.Include.NON_NULL)
+@JsonInclude(value = JsonInclude.Include.NON_NULL) // 处理掉一些null的条目
 public class ResponseVo<T> {
 
     private Integer status;

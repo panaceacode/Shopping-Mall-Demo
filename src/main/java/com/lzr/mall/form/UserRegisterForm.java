@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
+/**
+ * 登陆提交对象
+ */
+
 @Data
 public class UserRegisterForm {
 

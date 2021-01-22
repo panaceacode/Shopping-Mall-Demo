@@ -24,6 +24,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    // @Valid, @RequestBody, BindingResult的配合使用，检验参数问题
     @PostMapping("/user/register")
     public ResponseVo register(@Valid @RequestBody UserRegisterForm userRegisterForm,
                                BindingResult bindingResult) {
@@ -50,6 +51,8 @@ public class UserController {
 
         ResponseVo<User> userResponseVo = userService.login(userLoginForm.getUsername(), userLoginForm.getPassword());
 
+        // 直接写入session
+        // 知识点：跨域问题，区别
         session.setAttribute(MallConst.CURRENT_USER, userResponseVo.getData());
 
         return userResponseVo;

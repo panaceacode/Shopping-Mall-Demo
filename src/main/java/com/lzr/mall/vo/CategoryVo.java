@@ -4,6 +4,10 @@ import lombok.Data;
 
 import java.util.List;
 
+/**
+ * 查询 Category 返回对象
+ */
+
 @Data
 public class CategoryVo {
 

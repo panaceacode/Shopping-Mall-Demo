@@ -2,6 +2,10 @@ package com.lzr.mall.enums;
 
 import lombok.Getter;
 
+/**
+ * 用户身份码
+ */
+
 @Getter
 public enum RoleEnum {
 

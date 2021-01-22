@@ -72,6 +72,7 @@ public class UserServiceImpl implements IUserService {
             return ResponseVo.error(ResponseEnum.USERNAME_OR_PASSWORD_ERROR);
         }
 
+        // 隐藏密码信息
         user.setPassword("");
 
         return ResponseVo.success(user);

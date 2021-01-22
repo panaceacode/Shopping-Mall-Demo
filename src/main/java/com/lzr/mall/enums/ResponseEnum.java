@@ -2,6 +2,10 @@ package com.lzr.mall.enums;
 
 import lombok.Getter;
 
+/**
+ * 返回状态码及其msg
+ */
+
 @Getter
 public enum ResponseEnum {
 
