@@ -1,0 +1,18 @@
+package com.lzr.mall.service;
+
+import com.github.pagehelper.PageInfo;
+import com.lzr.mall.form.ShippingForm;
+import com.lzr.mall.vo.ResponseVo;
+
+import java.util.Map;
+
+public interface IShippingService {
+
+    ResponseVo<Map<String, Integer>> add(Integer uid, ShippingForm shippingForm);
+
+    ResponseVo delete(Integer uid, Integer shippingId);
+
+    ResponseVo update(Integer uid, Integer shippingId, ShippingForm shippingForm);
+
+    ResponseVo<PageInfo> list(Integer uid, Integer pageNum, Integer pageSize);
+}
