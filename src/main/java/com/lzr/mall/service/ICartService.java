@@ -2,8 +2,11 @@ package com.lzr.mall.service;
 
 import com.lzr.mall.form.CartAddForm;
 import com.lzr.mall.form.CartUpdateForm;
+import com.lzr.mall.pojo.Cart;
 import com.lzr.mall.vo.CartVo;
 import com.lzr.mall.vo.ResponseVo;
+
+import java.util.List;
 
 public interface ICartService {
 
@@ -20,4 +23,6 @@ public interface ICartService {
     ResponseVo<CartVo> unselectAll(Integer uid);
 
     ResponseVo<Integer> sum(Integer uid);
+
+    List<Cart> cartList(Integer uid);
 }

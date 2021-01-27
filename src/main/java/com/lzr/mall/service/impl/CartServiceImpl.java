@@ -49,7 +49,7 @@ public class CartServiceImpl implements ICartService {
 
         // 商品是否正常在售
         if (!product.getStatus().equals(ProductStatusEnum.ON_SALE.getCode())) {
-            return ResponseVo.error(ResponseEnum.PRODUCT_OFF_SALE_DELETE);
+            return ResponseVo.error(ResponseEnum.PRODUCT_OFF_SALE_OR_DELETE);
         }
 
         // 商品库存是否充足
@@ -205,7 +205,7 @@ public class CartServiceImpl implements ICartService {
         return ResponseVo.success(sum);
     }
 
-    private List<Cart> cartList(Integer uid) {
+    public List<Cart> cartList(Integer uid) {
         HashOperations<String, String, String> opsForHash =  redisTemplate.opsForHash();
         String redisKey = String.format(CART_REDIS_KEY_TEMPLATE, uid);
         Map<String, String> entries = opsForHash.entries(redisKey);

@@ -60,7 +60,7 @@ public class ProductServiceImpl implements IProductService {
 
         if (product.getStatus().equals(ProductStatusEnum.OFF_SALE.getCode())
                 || product.getStatus().equals(ProductStatusEnum.DELETE.getCode())) {
-            return ResponseVo.error(ResponseEnum.PRODUCT_OFF_SALE_DELETE);
+            return ResponseVo.error(ResponseEnum.PRODUCT_OFF_SALE_OR_DELETE);
         }
         ProductDetailVo productDetailVo = new ProductDetailVo();
         BeanUtils.copyProperties(product, productDetailVo);

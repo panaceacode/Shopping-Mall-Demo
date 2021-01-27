@@ -7,6 +7,7 @@ import lombok.Getter;
  */
 @Getter
 public enum ProductStatusEnum {
+
     ON_SALE(1),
 
     OFF_SALE(2),

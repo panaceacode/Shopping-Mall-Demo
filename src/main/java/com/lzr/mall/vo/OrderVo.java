@@ -1,20 +1,16 @@
-package com.lzr.mall.pojo;
+package com.lzr.mall.vo;
 
+import com.lzr.mall.pojo.Shipping;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
-public class Order {
-
-    private Integer id;
+public class OrderVo {
 
     private Long orderNo;
-
-    private Integer userId;
-
-    private Integer shippingId;
 
     private BigDecimal payment;
 
@@ -34,5 +30,9 @@ public class Order {
 
     private Date createTime;
 
-    private Date updateTime;
+    private List<OrderItemVo> orderItemVoList;
+
+    private Integer shippingId;
+
+    private Shipping shippingVo;
 }

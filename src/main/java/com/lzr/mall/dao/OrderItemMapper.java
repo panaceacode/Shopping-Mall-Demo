@@ -1,8 +1,13 @@
 package com.lzr.mall.dao;
 
 import com.lzr.mall.pojo.OrderItem;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Set;
 
 public interface OrderItemMapper {
+
     int deleteByPrimaryKey(Integer id);
 
     int insert(OrderItem record);
@@ -14,4 +19,8 @@ public interface OrderItemMapper {
     int updateByPrimaryKeySelective(OrderItem record);
 
     int updateByPrimaryKey(OrderItem record);
+
+    int batchInsert(@Param("orderItemList") List<OrderItem> recordList);
+
+    List<OrderItem> selectByOrderNoSet(@Param("orderNoSet") Set orderNoSet);
 }
