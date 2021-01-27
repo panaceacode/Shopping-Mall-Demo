@@ -19,7 +19,7 @@ public class OrderController {
     @Autowired
     private IOrderService orderService;
 
-    @PostMapping("/create")
+    @PostMapping("/orders")
     public ResponseVo<OrderVo> create(@Valid @RequestBody OrderCreateForm orderCreateForm,
                                       HttpSession session) {
         User user = (User) session.getAttribute(MallConst.CURRENT_USER);

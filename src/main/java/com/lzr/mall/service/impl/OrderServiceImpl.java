@@ -198,6 +198,26 @@ public class OrderServiceImpl implements IOrderService {
         return ResponseVo.success();
     }
 
+    @Override
+    public void paid(Long orderNo) {
+        Order order = orderMapper.selectByOrderNo(orderNo);
+        if (order == null) {
+            throw new RuntimeException(ResponseEnum.ORDER_NOT_EXIST.getDesc() + "订单id: " + orderNo);
+        }
+
+        // 只有未付款订单可以变成已付款
+        if (!order.getStatus().equals(OrderStatusEnum.NO_PAY.getCode())) {
+            throw new RuntimeException(ResponseEnum.ORDER_STATUS_ERROR.getDesc() + "订单id: " + orderNo);
+        }
+
+        order.setStatus(OrderStatusEnum.PAID.getCode());
+        order.setPaymentTime(new Date());
+        int row = orderMapper.updateByPrimaryKeySelective(order);
+        if (row <= 0) {
+            throw new RuntimeException("将订单更新为已支付状态失败，订单id：" + orderNo);
+        }
+    }
+
     /**
      * 随机生成订单号，时间戳+随机数
      * 现实中可使用分布式唯一id

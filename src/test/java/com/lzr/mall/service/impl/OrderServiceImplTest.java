@@ -80,4 +80,5 @@ public class OrderServiceImplTest extends MallApplicationTests {
         log.info("result={}", gson.toJson(responseVo));
         Assert.assertEquals(ResponseEnum.SUCCESS.getCode(), responseVo.getStatus());
     }
+
 }
